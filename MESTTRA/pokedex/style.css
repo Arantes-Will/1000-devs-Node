@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration:none;
+    box-sizing: border-box;
+}
+
+body{
+    background: #5db9ff;
+    font-size: 100%;
+}
+
+.pokedex-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pokedex-header img{
+    width: 15% ;
+    position: relative;
+    top: -46px;
+}
+
+.pokedex-header h1{
+    
+}
