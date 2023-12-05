@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     text-decoration:none;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body{
@@ -20,9 +23,89 @@ body{
 .pokedex-header img{
     width: 15% ;
     position: relative;
-    top: -46px;
+    top: -40px;
 }
 
 .pokedex-header h1{
+    color: #fbd743;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: #000 1px 0 10px;
+    position: relative;
+    top: -70px;
+}
+
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.lista-pokemons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+
+}
+
+.pokemon-card{
+    width: 23%;
+    margin: 10px;
+    height: 250px;
+    background-color: white;
+    border: 1px solid #363b81;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    flex-direction: column;
+
+}
+.pokemon-card h3{
+    font-size: 22px;
+    color: #ff1f1f;
+
+}
+
+.form-busca{
+    display: flex;
+    margin: 10px;
+}
+
+.form-busca input{
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+    border: 1px solid #363b81 ;
+    border-radius: 5px;
+    color: #ff1f1f;
+}
+
+.form-busca button{
+    outline: none;
+    border: none;
+    background-color: #FFF;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all .6s;
+
+}
+
+.form-busca button:hover{
+    transform: scale(1.1);
     
 }

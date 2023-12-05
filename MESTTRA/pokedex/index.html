@@ -14,28 +14,17 @@
             <h1>Lista de Pokemons</h1>
         </header>
 
-        <ul id = "pokemons">
-            
-        </ul>
+        <section class="container">
+            <form class = "form-busca">
+                <input type="text" name="buscar" id="buscar" placeholder="Digite o nome do pokemon">
+                <button type="submit">Buscar</button>
+            </form>
+            <ul id = "pokemons" class="lista-pokemons">            
+            </ul>
+        </section>
+
+        
     </main>
-
-    <script>
-            const listaTarefasHtml = document.getElementById("pokemons")
-            console.log(listaTarefasHtml)
-
-
-            const chamadaApi = fetch('https://pokeapi.co/api/v2/pokemon?limit=120') 
-            
-            chamadaApi.then((response) => { 
-                return response.json()
-            }).then((pokemons) => {
-                pokemons.results.map((pokemon,index) => {
-                    listaTarefasHtml.insertAdjacentHTML('beforeend',`<li>
-                        <p>Nome: ${pokemon.name}</p>
-                        <img src ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png"/>
-                    </li>`) //Inclui uma tag html em uma posição definida
-                })
-            })
-    </script>    
+    <script src="./scripts.js"></script>    
 </body>
 </html>
