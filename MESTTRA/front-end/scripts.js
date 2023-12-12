@@ -1,10 +1,5 @@
 const listaTarefasHtml = document.getElementById("Tarefas")
 console.log(listaTarefasHtml)
-
-
-
-
-
 //Vamos acessar o back-end pelo front-end
 //Fazendo a chamada da API
 /*Fetch API fornece uma interface para buscar recursos em toda rede, 
