@@ -5,27 +5,7 @@ const crypto = require('crypto')
 //middleware, ou seja inicializa as rotas do express
 const router = express.Router()
 
-const products = [
-    {
-        id: crypto.randomUUID(),
-        name: 'Playstation 5',
-        category: 'Eletronicos',
-        price: 'R$4000'
-    },
-    {
-        id: crypto.randomUUID(),
-        name: 'Nintendo Wii',
-        category: 'Eletronicos',
-        price: 'R$2000'
-    },
-    {
-        id: crypto.randomUUID(),
-        name: 'Geladeira',
-        category: 'Eletrodomesticos',
-        price: 'R$2500'
-    },
-
-]
+const products = []
 
 //[GET] - Rota que lista todos os produtos
 router.get('/',(req,res) => {
@@ -74,6 +54,21 @@ router.delete('/delete/:id',(req,res) =>{
     const index = products.findIndex(product => product.id == id)
     products.splice(index,1)
     res.send('Produto excluido com sucesso!')
+})
+
+//[PUT] - Atualiza um produto pre cadastrado
+router.put('/edit/:id',(req,res) =>{
+    //recebo o id via param
+    const id = req.params.id
+    //recebo o objeto com os dados atualizados do produto
+    const editProduct = req.body
+
+    const index = products.findIndex(product => product.id == id)
+    products[index] = {
+        ...products[index],
+        ...editProduct
+    }
+    res.send('Produto atualizado com sucesso!')
 })
 
 
