@@ -1,6 +1,13 @@
 // Backend - Projeto Mesttra Ecommerce
 const express = require('express')
+//importo as rotas da aplicação
+const productRouter = require('./routes/routes')
+
 const app = express() //Inicialização da instancia do express
+app.use(express.json()) //habilito o middleware do json do express
+
+//inicializa a rota /products de acordo com as configurações do meu arquivo de rotas
+app.use('/products',productRouter) 
 
 //Configuração da primeira rota (boas vindas) por enquanto só a de consulta (GET)
 app.get('/',(req,res) => {
