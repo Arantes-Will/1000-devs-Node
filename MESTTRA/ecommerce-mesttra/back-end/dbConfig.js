@@ -10,13 +10,13 @@ const pool = new Pool({
     port: 5432
 })
 
-//teste para saber se a conexão com o banco deu certo (retorna o nome das tabelas e etc...)
+/*teste para saber se a conexão com o banco deu certo (retorna o nome das tabelas e etc...)
 const teste = async() =>{
     const result = await pool.query('SELECT * FROM products')
     console.log(result.rows[0])
 }
 
-teste()
+teste()*/
 
 //exportando a minha constante pool
 module.exports = pool
