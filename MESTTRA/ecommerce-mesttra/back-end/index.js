@@ -2,9 +2,12 @@
 const express = require('express')
 //importo as rotas da aplicação
 const productRouter = require('./routes/routes')
+//importando o cors
+const cors = require('cors')
 
 const app = express() //Inicialização da instancia do express
 app.use(express.json()) //habilito o middleware do json do express
+app.use(cors())//habilito o middleware do cors
 
 //inicializa a rota /products de acordo com as configurações do meu arquivo de rotas
 app.use('/products',productRouter) 

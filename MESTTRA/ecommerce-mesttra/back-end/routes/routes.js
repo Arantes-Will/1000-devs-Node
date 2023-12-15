@@ -12,26 +12,47 @@ const router = express.Router()
 const products = []
 
 //[GET] - Rota que lista todos os produtos
-router.get('/',async (req,res) => {
-    const productDB = await pool.query('SELECT * FROM products')
-    console.log(productDB.rows)  
-    res.send(productDB.rows)  
+router.get('/',async (req,res) => { //O tratamento de erro neste caso é na questão do await, se der algum problema cai no catch
+    try{
+        const productDB = await pool.query('SELECT * FROM products')        
+        res.send(productDB.rows)
+
+    } catch (error){
+        console.error('Erro ao buscar o produto',error) //error da um destaque!
+        res.status(500).json({
+            message: 'Erro durante a busca',
+            data: error
+        })
+    }      
 })
 
 //[GET] - Rota que retorna um produto por id
 router.get('/:id',async(req,res) =>{
-    //Recebo o id via req params
-    const id = req.params.id
-    //Procuro o produto que contém o id igual ao recebido pelo parametro
-    //const product = products.find(product => product.id == id)
-    const productIDDB = await pool.query('SELECT * FROM products WHERE id = $1',[id])
-    //Verifico se existe o produto, se não existir devolvo um 404 com a mensagem abaixo
-    if(productIDDB.rows.length === 0){
-        res.status(404).send('Produto não encontrado')
-    }
-    else{
-        res.send(productIDDB.rows)
-    }
+try{
+        //Recebo o id via req params
+        const id = req.params.id
+        //Procuro o produto que contém o id igual ao recebido pelo parametro
+        //const product = products.find(product => product.id == id)
+        const productIDDB = await pool.query('SELECT * FROM products WHERE id = $1',[id])
+        //Verifico se existe o produto, se não existir devolvo um 404 com a mensagem abaixo
+        if(productIDDB.rows.length === 0){
+            res.status(404).send('Produto não encontrado')
+        }
+        else{
+            res.send(productIDDB.rows)
+        }
+
+}catch(error){
+        
+    console.error('Erro ao buscar o produto',error) //error da um destaque!
+        res.status(500).json({
+            message: 'Erro durante a busca',
+            data: error
+        })
+
+}
+
+
     
 })
 
